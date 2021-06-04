@@ -1,0 +1,12 @@
+.alert-info {
+    float: left;
+    clear: both;
+    width: 400px;
+    margin: 20px 34%;
+    text-align: left;
+
+}
+
+body {
+    background-color: #456158;
+}
