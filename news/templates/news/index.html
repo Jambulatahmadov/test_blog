@@ -1,14 +1,27 @@
 {% extends 'news/base.html' %}
-
+<!--наследую главный шаблон-->
 {% block title %} Главная страница {% endblock %}
 
 {% block content %}
-{% for i in news %}
-<div class="alert alert-info">
-    <p>{{ i.title }}</p>
-    <p>{{ i.content }}</p>
-</div>
-{% endfor %}
+<!--вывод новостей из базы данных через цикл-->
 
-{% endblock %}
-
+<div class="container mt-3">
+    <h1>{{ title }}</h1>
+    <p></p>
+    <div class="row">
+        {% for i in news %}
+        <div class="card mb-5">
+            <div class="card-header">
+                ***Заглушка***
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ i.title }}</h5>
+                <p class="card-text">{{ i.content }}</p>
+                <a href="/" class="btn btn-primary">Read more</a>
+            </div>
+            <div class="card-footer text-muted">
+                {{ i.created_ad }}
+            </div>
+        </div>
+        {% endfor %}
+        {% endblock %}

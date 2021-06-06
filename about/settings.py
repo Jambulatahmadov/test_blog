@@ -120,6 +120,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# подключаю статику
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
