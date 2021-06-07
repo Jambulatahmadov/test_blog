@@ -1,12 +1,18 @@
 from django.shortcuts import render
 # импортирую модель чтобы работать с нею в функциях вьюхи
-from .models import News
+from .models import *
 
 
 # рендер шаблона с передачей в него новостей из модели
 def index(request):
     news = News.objects.all()
-    return render(request, 'news/index.html', {'news': news, 'title': 'Список новостей'})
+    categories = Category.objects.all()
+    context = {
+        'news': news,
+        'title': 'Список новостей',
+        'categories': categories
+    }
+    return render(request, 'news/index.html', context)
 
 
 def about(request):

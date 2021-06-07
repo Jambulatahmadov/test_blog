@@ -8,20 +8,34 @@
 <div class="container mt-3">
     <h1>{{ title }}</h1>
     <p></p>
-    <div class="row">
-        {% for i in news %}
-        <div class="card mb-5">
-            <div class="card-header">
-                {{ i.category }}
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">{{ i.title }}</h5>
-                <p class="card-text">{{ i.content }}</p>
-                <a href="/" class="btn btn-primary">Read more</a>
-            </div>
-            <div class="card-footer text-muted">
-                {{ i.created_ad }}
-            </div>
+    <div class="col-md-4">
+        <div class="list-group">
+            {% for i in categories %}
+            <a href="#" class="list-group-item list-group-item-action">{{ i.title }}</a>
+            {% endfor %}
+            <p></p>
         </div>
-        {% endfor %}
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            {% for i in news %}
+            <div class="card mb-3">
+                <div class="card-header">
+                    {{ i.category }}
+                </div>
+                <div class="card-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <h5 class="card-title">{{ i.title }}</h5>
+                            <p class="card-text">{{ i.content }}</p>
+                            <a href="/" class="btn btn-primary">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    {{ i.created_ad }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
         {% endblock %}
