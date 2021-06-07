@@ -8,6 +8,7 @@ class News(models.Model):
     created_ad = models.DateTimeField('Дата публикации', auto_now_add=True)
     updated_ad = models.DateTimeField('Дата обновления', auto_now=True)
     is_published = models.BooleanField('Опубликовано', default=True)
+    category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория')
 
     def __str__(self):
         return self.title
@@ -17,3 +18,16 @@ class News(models.Model):
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
         ordering = ['-created_ad']
+
+
+# новая модель для категорий к новостям
+class Category(models.Model):
+    title = models.CharField('Категория', max_length=50)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+        ordering = ['title']
